@@ -1,0 +1,51 @@
+entity Student {
+	firstName String
+    lastName String
+}
+entity SchollClass {
+	name String
+}
+entity Group {
+	name String
+    minMemberCount Integer
+    maxMemberCount Integer
+}
+entity GradeLevel {
+	value Integer
+}
+entity Subject {
+	name String
+    common Boolean
+}
+
+relationship ManyToMany {
+	//Job{task(title)} to Task{job}
+	Group{subjects} to Subject{groups}
+    Group{students} to Student{groups}
+ 
+    SchollClass{gradeLevels} to GradeLevel{schoolClasses}
+    Subject{gradeLevels} to GradeLevel{subjects}
+}
+
+relationship ManyToOne {
+  
+    Group{gradeLevel} to GradeLevel 
+    Student{gradeLevel} to GradeLevel 
+	Student{schoolClass} to  SchollClass
+}
+//relationship OneToMany {
+	
+//}
+
+
+
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
