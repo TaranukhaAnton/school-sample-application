@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity Group.
+    -->
+    <changeSet id="20200324124700-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="grade_level_id"
+                                 baseTableName="jhi_group"
+                                 constraintName="fk_jhi_group_grade_level_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="grade_level"/>
+
+        <addForeignKeyConstraint baseColumnNames="group_id"
+                                 baseTableName="jhi_group_subjects"
+                                 constraintName="fk_jhi_group_subjects_jhi_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="subjects_id"
+                                 baseTableName="jhi_group_subjects"
+                                 constraintName="fk_jhi_group_subjects_subjects_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject"/>
+        
+        <addForeignKeyConstraint baseColumnNames="group_id"
+                                 baseTableName="jhi_group_students"
+                                 constraintName="fk_jhi_group_students_jhi_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="students_id"
+                                 baseTableName="jhi_group_students"
+                                 constraintName="fk_jhi_group_students_students_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"/>
+        
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,38 @@
+{
+    "name": "GradeLevel",
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "schollClass",
+            "otherEntityRelationshipName": "gradeLevels",
+            "relationshipName": "schollClasses",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "subject",
+            "otherEntityRelationshipName": "gradeLevels",
+            "relationshipName": "subjects",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200324124800",
+    "entityTableName": "grade_level",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
