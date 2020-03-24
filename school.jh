@@ -1,0 +1,47 @@
+entity Student {
+	firstName String
+    lastName String
+}
+entity Class {
+	name String
+}
+entity Group {
+	name String
+}
+entity GradeLevel {
+	value Integer
+}
+entity Subject {
+	name String
+    common Boolean
+}
+
+relationship ManyToMany {
+	Group{subjects} to Subject
+    Group{students} to Student
+    Class{gradeLevels} to GradeLevel 
+    Subject{gradeLevels} to GradeLevel 
+}
+
+relationship ManyToOne {
+  
+    Group{gradeLevel} to GradeLevel 
+    Student{gradeLevel} to GradeLevel 
+}
+relationship OneToMany {
+	Class{students} to Student
+}
+
+
+// Set pagination options
+paginate Article, Novel with infinite-scroll
+paginate Author with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
