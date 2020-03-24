@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity Subject.
+    -->
+    <changeSet id="20200324123700-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="subject_id"
+                                 baseTableName="subject_grade_levels"
+                                 constraintName="fk_subject_grade_levels_subject_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject"/>
+
+        <addForeignKeyConstraint baseColumnNames="grade_levels_id"
+                                 baseTableName="subject_grade_levels"
+                                 constraintName="fk_subject_grade_levels_grade_levels_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="grade_level"/>
+        
+    </changeSet>
+</databaseChangeLog>
